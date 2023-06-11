@@ -43,17 +43,71 @@ In T flip flop, "T" defines the term "Toggle". In SR Flip Flop, we provide only 
 
 
 ## Program:
+### SR FLIPFLOP:
+module exp5a(s,r,clk,q,qbar);<br>
+input s,r,clk;<br>
+output reg q;<br>
+output qbar;<br>
+always@(posedge clk)<br>
+begin<br>
+q=s|((~r)&q);<br>
+end<br>
+assign qbar=~q;<br>
+endmodule<br>
 
+### D-FLIPFLOP:
+module exp5b(d,clk,q,qbar);<br>
+input d,clk;<br>
+output reg q;<br>
+output qbar;<br>
+always@(posedge clk)<br>
+begin<br>
+q=((~q)&d)|(q&d);<br>
+end<br>
+assign qbar=~q;<br>
+endmodule<br>
 
+### JK FLIPFLOP:
+module exp5c(j,k,clk,q,qbar);<br>
+input j,k,clk;<br>
+output reg q;<br>
+output qbar;<br>
+always@(posedge clk)<br>
+begin<br>
+q=((~q)&j)|(q&(~k));<br>
+end<br>
+assign qbar=~q;<br>
+endmodule<br>
+
+### T FLIPFLOP:
+module exp5d(t,clk,q,qbar);<br>
+input t,clk;<br>
+output reg q;<br>
+output qbar;<br>
+always@(posedge clk)<br>
+begin<br>
+q=((~q)&t)|(q&(~t));<br>
+end<br>
+assign qbar=~q;<br>
+endmodule<br>
 ## RTL Schematic:
-
-
-
-
+#### SR FLIPFLOP:<br>
+![SR FLIPFLOP](1.png)<br>
+#### D-FLIPFLOP:<br>
+![D-FLIPFLOP](2.png)<br>
+#### JK FLIPFLOP:<br>
+![JK FLIPFLOP](3.png)<br>
+#### T FLIPFLOP:<br>
+![T FLIPFLOP](4.png)<br>
 ## Timing Diagram:
-
-
-
+#### SR FLIPFLOP:<br>
+![SR FLIPFLOP](5.png)<br>
+#### D-FLIPFLOP:<br>
+![D-FLIPFLOP](6.png)<br>
+#### JK FLIPFLOP:<br>
+![JK FLIPFLOP](7.png)<br>
+#### T FLIPFLOP:<br>
+![T FLIPFLOP](8.png)<br>
 ## Result:
 Thus the SR, D, JK and T flipflops are implemented and the characteristic tables are verified.
 
